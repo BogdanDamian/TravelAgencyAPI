@@ -9,13 +9,13 @@ import org.travel.model.Trip;
 
 @Mapper(componentModel = "spring")
 public interface TripMapper {
-    @Mappings({@Mapping(source = "clientId", target = "client_id"),
-            @Mapping(source = "roadId", target = "road_id"),
-            @Mapping(source = "hotelRoomPriceId", target = "hotel_room_price_id")})
+    @Mappings({@Mapping(source = "clientId", target = "client.id"),
+            @Mapping(source = "roadId", target = "road.id"),
+            @Mapping(source = "hotelRoomPriceId", target = "hotelRoomPrice.id")})
     Trip dtoToModel(TripDto tripDto);
 
-    @Mappings({@Mapping(source = "client_id", target = "clientId"),
-            @Mapping(source = "road_id", target = "roadId"),
-            @Mapping(source = "hotel_room_price_id", target = "hotelRoomPriceId")})
+    @Mappings({@Mapping(source = "client.id", target = "clientId"),
+            @Mapping(source = "road.id", target = "roadId"),
+            @Mapping(source = "hotelRoomPrice.id", target = "hotelRoomPriceId")})
     TripDto modelToDto(Trip trip);
 }

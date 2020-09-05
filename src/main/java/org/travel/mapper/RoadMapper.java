@@ -8,11 +8,11 @@ import org.travel.model.Road;
 
 @Mapper(componentModel = "spring")
 public interface RoadMapper {
-    @Mappings({@Mapping(source = "fromCityId", target = "from_city_id"),
-            @Mapping(source = "toCityId", target = "to_city_id")})
+    @Mappings({@Mapping(source = "fromCityId", target = "fromCity.id"),
+            @Mapping(source = "toCityId", target = "toCity.id")})
     Road dtoToModel(RoadDto roadDto);
 
-    @Mappings({@Mapping(source = "from_city_id", target = "fromCityId"),
-            @Mapping(source = "to_city_id", target = "toCityId")})
+    @Mappings({@Mapping(source = "fromCity.id", target = "fromCityId"),
+            @Mapping(source = "toCity.id", target = "toCityId")})
     RoadDto modelToDto(Road road);
 }
