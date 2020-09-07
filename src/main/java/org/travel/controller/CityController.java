@@ -27,8 +27,8 @@ public class CityController {
                                              @RequestParam(required = false) Long countryId) {
         try {
             return new ResponseEntity<>(citySrv.get(pageNr, pageSize, actOrIn, name, countryId), HttpStatus.OK);
-        } catch (TravelAgencyException trvAgEx) {
-            trvAgEx.printStackTrace();
+        } catch (TravelAgencyException trAgEx) {
+            trAgEx.printStackTrace();
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }

@@ -58,6 +58,14 @@ public class CityService {
         return cityRep.getAllByCountryAndNameContaining(countryMap.dtoToModel(countryDto), name, pageable);
     }
 
+    private List<City> getAllByCountryAndActiveOrInactiveDestination
+            (Integer pageNr, Integer pageSize, Long countryId, String actOrIn) throws TravelAgencyException {
+        CountryDto countryDto = countrySrv.getById(countryId);
+        Pageable pageable = PageRequest.of(pageNr, pageSize);
+        Boolean isDestination = actOrIn.equals("active");
+        return cityRep.getAllByCountryAndIsDestination(countryMap.dtoToModel(countryDto), isDestination, pageable);
+    }
+
     public List<CityDto> get(Integer pageNr, Integer pageSize,
                              String actOrIn, String name, Long countryId) throws TravelAgencyException {
         List<City> cities;
@@ -71,9 +79,9 @@ public class CityService {
         } else if (name == null) {
             if (countryId == null) cities = getAllActiveOrInactiveDestinations(pageNr, pageSize, actOrIn);
             else {
-                cities = null; //todo
+                cities = getAllByCountryAndActiveOrInactiveDestination(pageNr,pageSize,countryId,actOrIn);
             }
-        } else if(countryId == null) cities = null; //todo
+        } else if (countryId == null) cities = null; //todo
         else cities = null; //todo
 
         if (cities.size() == 0) throw new CitiesNotFoundException();
@@ -81,7 +89,6 @@ public class CityService {
         return cities.stream()
                 .map(city -> cityMap.modelToDto(city))
                 .collect(Collectors.toList());
-
 
 
     }
