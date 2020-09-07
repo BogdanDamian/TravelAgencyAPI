@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CountryDto {
     private Long id;
+    private String code;
     private String name;
-    private String telephone;
+    private Boolean needVisa;
 }
