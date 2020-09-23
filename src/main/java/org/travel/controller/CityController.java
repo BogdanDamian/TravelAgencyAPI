@@ -21,7 +21,7 @@ public class CityController {
 
     @GetMapping
     public ResponseEntity<List<CityDto>> get(@RequestParam(required = false, defaultValue = "0") Integer pageNr,
-                                             @RequestParam(required = false, defaultValue = "25") Integer pageSize,
+                                             @RequestParam(required = false, defaultValue = "5000") Integer pageSize,
                                              @RequestParam(required = false) String actOrIn,
                                              @RequestParam(required = false) String name,
                                              @RequestParam(required = false) Long countryId) {

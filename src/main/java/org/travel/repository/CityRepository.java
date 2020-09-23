@@ -21,4 +21,6 @@ public interface CityRepository extends JpaRepository<City, Long> {
     List<City> getAllByCountryAndNameContaining(Country country, String name, Pageable pageable);
 
     List<City> getAllByCountryAndIsDestination(Country country, Boolean isDestination, Pageable pageable);
+
+
 }

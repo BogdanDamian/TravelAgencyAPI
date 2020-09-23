@@ -89,7 +89,5 @@ public class CityService {
         return cities.stream()
                 .map(city -> cityMap.modelToDto(city))
                 .collect(Collectors.toList());
-
-
     }
 }

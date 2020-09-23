@@ -18,7 +18,7 @@ public class ClientController {
 
     @GetMapping
     public ResponseEntity<List<ClientDto>> get(@RequestParam(required = false, defaultValue = "0") Integer pageNr,
-                                               @RequestParam(required = false, defaultValue = "25") Integer pageSize,
+                                               @RequestParam(required = false, defaultValue = "20") Integer pageSize,
                                                @RequestParam(required = false) String name,
                                                @RequestParam(required = false) String telephone) {
         try {
